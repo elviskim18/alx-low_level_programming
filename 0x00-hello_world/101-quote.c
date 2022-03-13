@@ -1,9 +1,27 @@
-#include <stdio.h>
-#include <unistd.h>
+/*
+******************************************************************************
+*                                                                            *
+*                                                 _____  ______    ____  ___ *
+*    101-quote.c                                 /  _  \ |    |    \   \/  / *
+*                                               /  /_\  \|    |     \     /  *
+*    By: ELV                   @gmail.com>     /    |    \    |___  /     \  *
+*                                              \____|__  /_______ \/___/\  \ *
+*    Created: 2022-03-10 13:29:43 by ELVIS             \/        \/      \_/ *
+*    Updated: 2022-03-10 13:29:43 by ELVIS                                   *
+*                                                                            *
+******************************************************************************
+*/
+
+#include<unistd.h>
+#include<stdlib.h>
+#include<stdio.h>
+
 /**
- * main - Entry point
- * Return:1
- */
+* main - Entry point
+*
+* Return: Always 0 (Success)
+*/
+
 int main(void)
 {
 
