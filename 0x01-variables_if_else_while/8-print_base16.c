@@ -1,23 +1,29 @@
-#include <stdio.h>
+#include<stdio.h>
+#include <stdlib.h>
+
 /**
- * main - Entry point
- * Return:0
- */
+* main - Entry point
+*
+* Return: Always 0 (Success)
+*/
+
 int main(void)
 {
-	int i, y;
-
-	for (i = 0; i < 10; i++)
+	char ch = 'a';
+	int i = 48;
+	/* your code goes there */
+	while (i < 58)
 	{
-		putchar (i + '0');
+		putchar(i);
+		i++;
 	}
-
-	for (y = 'a'; y <= 'f'; y++)
+	i = 0;
+	while (i < 6)
 	{
-		putchar (y);
+		putchar(ch);
+		ch++;
+		i++;
 	}
-
-   putchar('\n');
-
-   return (0);
+	putchar('\n');
+	return (0);
 }
