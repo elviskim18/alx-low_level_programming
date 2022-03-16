@@ -1,20 +1,19 @@
 #include "main.h"
 
 /**
-* main - Entry point
-*
-* Return: Always 0 (Success)
-*/
+ * main - Entry point
+ * Return:0
+ */
 
 int main(void)
 {
-	char chaine[] = "_putchar\n";
-	int i = 0;
-
-	while (chaine[i])
-	{
-		_putchar(chaine[i]);
-		i++;
-	}
-	return (0);
+char c[10] = "_putchar";
+int i = 0;
+while (i < 9)
+{
+_putchar(c[i]);
+i++;
 }
+_putchar('\n');
+return (0);
+
