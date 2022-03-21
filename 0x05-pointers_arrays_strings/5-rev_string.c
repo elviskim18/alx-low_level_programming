@@ -1,30 +1,29 @@
-#include "main.h"
-
+#include "holberton.h"
 /**
- * rev_string - a function that takes a pointer to an int as parameter and
- * @s: chaine of caractere
- *
- * Return: 1 or 0
- */
+ * rev_string - prints reversed string, followed by a new line
+ * @s: pointer to the string to print
+ * Return: void
+*/
 
 void rev_string(char *s)
 {
-	int i = 0, taille, k;
-	char c;
 
-	while (s[i] != '\0')
-		i++;
+int len, i, half;
+char temp;
 
-	i--;
-	taille = i;
-	k = i / 2;
-	i = 0;
+for (len = 0; s[len] != '\0'; len++)
+;
 
-	while (i <= k)
-	{
-		c = s[i];
-		s[i] = s[taille];
-		s[taille] = c;
-		i++;
-		taille--;
-	}
+i = 0;
+
+half = len / 2;
+
+while (half--)
+{
+	temp = s[len - i - 1];
+	s[len - i - 1] = s[i];
+	s[i] = temp;
+	i++;
+}
+
+}
