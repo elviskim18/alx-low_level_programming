@@ -1,40 +1,43 @@
-#include<stdio.h>
+#include "main.h"
 
 /**
- * upper - a function ...
- * @c: the caractere
- *
- * Return: 1 or 0.
- */
+ * *cap_string - capitalize words
+ * @str: pointer
+ * Return: capitalzied string
+*/
 
-char	upper(char c)
+char *cap_string(char *str)
 {
-	char	car;
+char sep[] = ",\t;\n; .!?\"(){}";
+int flag, i, ii;
 
-	if (c >= 'a' && c <= 'z')
-		car = c + 'A' - 'a';
-	else
-		car = c;
-	return (car);
-}
-
-/**
- * cap_string - a function ...
- * @str: the chaine of caractere
- *
- * Return: str
- */
-
-char	*cap_string(char *str)
+for (i = 0; str[i] != '\0'; i++)
 {
-	int	i;
+	flag = 0;
 
-	i = 0;
-	while (str[i])
+	if (i == 0)
 	{
-		str[i] = upper(str[i]);
-		i++;
+		flag = 1;
 	}
-	return (str);
-}
+	else
+	{
+		for (ii = 0; sep[ii] != '\0'; ii++)
+		{
+			if (str[i - 1] == sep[ii])
+			{
+				flag = 1;
+				break;
+			}
+		}
+	}
 
+	if (flag == 1)
+	{
+		if (str[i] <= 'z' && str[i] >= 'a')
+		{
+			str[i] -= ('a' - 'A');
+		}
+	}
+}
+return (str);
+}
