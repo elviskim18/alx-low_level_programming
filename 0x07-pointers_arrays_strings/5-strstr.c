@@ -1,40 +1,30 @@
-/*****************************************************************************/
-/*                                                                           */
-/*                                               _____  ______    ____  ___  */
-/* 4-strpbrk.c                                  /  _  \ |    |    \   \/  /  */
-/*                                             /  /_\  \|    |     \     /   */
-/* By: Barahmou   <hamabarhamou@gmail.com>    /    |    \    |___  /     \   */
-/*                                            \____|__  /_______ \/___/\  \  */
-/* Created: 2022-03-28 09:44:03   $Barahmou           \/        \/      \_/  */
-/* Updated: 2022-03-28 09:44:03 by Barahmou                                  */
-/*                                                                           */
-/*****************************************************************************/
-
-#include <string.h>
-
+#include "main.h"
+#include <stdio.h>
 /**
- * _strpbrk - a function ...
- * @s: the chaine
- * @accept: the chaine
- *
- * Return: 1 or 0
+ * *_strstr - description
+ * @haystack: string
+ * @needle:  pointer
+ * Return: pointer
  */
 
-char *_strpbrk(char *s, char *accept)
+
+char *_strstr(char *haystack, char *needle)
 {
-	if ((s == NULL) || (accept == NULL))
-		return (NULL);
-	while (*s)
+int i, j;
+
+for (i = 0; haystack[i] > '\0'; i++)
+{
+	for (j = i; haystack[j] > '\0' && needle[j - i] > '\0'; j++)
 	{
-		if (strchr(accept, *s))
+		if (haystack[j] != needle[j - i])
 		{
-			return (s);
-		}
-		else
-		{
-			s++;
+			break;
 		}
 	}
-	return (NULL);
+	if (needle[j - i] == '\0')
+	{
+		return (haystack + i);
+	}
 }
-
+return (0);
+}
