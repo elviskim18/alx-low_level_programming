@@ -1,74 +1,52 @@
-/*****************************************************************************/
-/*                                                                           */
-/*                                               _____  ______    ____  ___  */
-/* 0-memset.c                                   /  _  \ |    |    \   \/  /  */
-/*                                             /  /_\  \|    |     \     /   */
-/* By: Barahmou   <hamabarhamou@gmail.com>    /    |    \    |___  /     \   */
-/*                                            \____|__  /_______ \/___/\  \  */
-/* Created: 2022-03-28 09:44:03   $Barahmou           \/        \/      \_/  */
-/* Updated: 2022-03-28 09:44:03 by Barahmou                                  */
-/*                                                                           */
-/*****************************************************************************/
-
-#include<stdlib.h>
-#include<stdio.h>
-
-#include<stdlib.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "main.h"
 
 /**
-* ft_strlen - a function
-* @str: the chaine
-*
-* Return: 1 or 0
-*/
-
-int ft_strlen(char *str)
-{
-	int i = 0;
-
-	while (str[i])
-		i++;
-	return (i);
-}
-
-/**
-* ft_strcpy - a functio
-* @src: the chaine
-*
-* Return: 1 or 0
-*/
-char *ft_strcpy(char *src)
-{
-	char *str = malloc((ft_strlen(src) + 1) * sizeof(char));
-	int i = 0;
-
-	while (src[i])
-	{
-		str[i] = src[i];
-		i++;
-	}
-	return (str);
-}
-
-/**
- * str_concat - a function ...
- * @s1: the chaine
- * @s2: the chaine
- *
- * Return: 1 or 0
+ * _strlen - find length of a string
+ * @s: string
+ * Return: int
  */
 
-char  *str_concat(char *s1, char *s2)
+
+int _strlen(char *s)
 {
-	char *src;
-	int len1 = 0, i = 0, len2 = 0, j = 0;
+int size = 0;
+for (; s[size] != '\0'; size++)
+;
+return (size);
+}
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+/**
+ * *str_concat - concatenates two strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: pointer
+ */
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	src = malloc((len1 + len2 + 1) * sizeof(char));
+char *str_concat(char *s1, char *s2)
+{
+int size1, size2, i;
+char *m;
 
+if (s1 == NULL)
+	s1 = "\0";
+if (s2 == NULL)
+	s2 = "\0";
+
+size1 = _strlen(s1);
+size2 = _strlen(s2);
+m = malloc((size1 + size2) *sizeof(char) + 1);
+if (m == 0)
+	return (0);
+
+for (i = 0; i <= size1 + size2; i++)
+{
+	if (i < size1)
+		m[i] = s1[i];
+	else
+		m[i] = s2[i - size1];
+}
+m[i] = '\0';
+return (m);
+}i
